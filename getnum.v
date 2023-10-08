@@ -24,8 +24,6 @@ module getnum(
     Clk_in,
     nRst,
     Start,
-    Gn_en,//enable signal of getnum
-    Num_time,
     Data_in,
     Num0,//count appearing times of 0
     Num1,
@@ -36,7 +34,7 @@ module getnum(
     Num6,
     Num7,
     Num8,
-    Num9,
+    Num9
     );
     //input signal
     input Clk_in;
@@ -45,18 +43,18 @@ module getnum(
     input wire [3:0]Data_in;
     //output signal
     output reg [7:0]Num0;
-    output reg [7:0]Num0;
-    output reg [7:0]Num0;
-    output reg [7:0]Num0;
-    output reg [7:0]Num0;
-    output reg [7:0]Num0;
-    output reg [7:0]Num0;
-    output reg [7:0]Num0;
-    output reg [7:0]Num0;
-    output reg [7:0]Num0;
+    output reg [7:0]Num1;
+    output reg [7:0]Num2;
+    output reg [7:0]Num3;
+    output reg [7:0]Num4;
+    output reg [7:0]Num5;
+    output reg [7:0]Num6;
+    output reg [7:0]Num7;
+    output reg [7:0]Num8;
+    output reg [7:0]Num9;
     //inner signal
     reg [7:0]Num_time;//use 256 cycles to input data at most
-    reg Gn_en = 0;
+    reg Gn_en;//enable signal of getnum
 
     always @(negedge Start) begin
         Gn_en<=1;
@@ -76,10 +74,11 @@ module getnum(
                 Num8<=8'b00;
                 Num9<=8'b00;
                 Num_time<=8'h00;
+                Gn_en<=0;
             end
         else if(Gn_en)
             begin
-                csae(Data_in)
+                case(Data_in)
                     4'h0:Num0<=Num0+1;
                     4'h1:Num1<=Num1+1;
                     4'h2:Num2<=Num2+1;
@@ -91,14 +90,18 @@ module getnum(
                     4'h8:Num8<=Num8+1;
                     4'h9:Num9<=Num9+1;
                     default: Gn_en<=0;//if Data_in == Ha or Hb or Hc or Hd or He or Hf, end counting
+                endcase
             end
     end
 
     always @(posedge Clk_in or negedge nRst) begin
-            if(~&Num_time)//Num_time != 8'Hff
-                Num_time<=Num_time+1;
-            else
+            if(&Num_time)//Num_time == 8'Hff
                 Gn_en<=0;//end counting
+        end
+
+    always @(posedge Clk_in or negedge nRst) begin
+            if(Gn_en)
+                Num_time<=Num_time+1;
         end
 
 endmodule

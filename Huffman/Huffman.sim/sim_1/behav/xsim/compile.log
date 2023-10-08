@@ -1,0 +1,6 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/xilinx/fpga_pro/Huffman_FPGA/getnum.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getnum
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/xilinx/fpga_pro/Huffman_FPGA/tb_gn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getnum
+WARNING: [VRFC 10-3609] overwriting previous definition of module 'getnum' [D:/xilinx/fpga_pro/Huffman_FPGA/getnum.v:23]
+INFO: [VRFC 10-311] analyzing module tb_gn
