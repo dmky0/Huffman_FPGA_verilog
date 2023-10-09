@@ -25,7 +25,7 @@ module getnum(
     nRst,
     Start,
     Data_in,
-    Num0,//count appearing times of 0
+    Num0,//count appearing times of 0 
     Num1,
     Num2,
     Num3,
