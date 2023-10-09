@@ -27,16 +27,16 @@ module tb_gn();
     reg start;
     reg [3:0]Data_in;
 
-    wire [7:0]num0;
-    wire [7:0]num1;
-    wire [7:0]num2;
-    wire [7:0]num3;
-    wire [7:0]num4;
-    wire [7:0]num5;
-    wire [7:0]num6;
-    wire [7:0]num7;
-    wire [7:0]num8;
-    wire [7:0]num9;
+    wire [8:0]num0;
+    wire [8:0]num1;
+    wire [8:0]num2;
+    wire [8:0]num3;
+    wire [8:0]num4;
+    wire [8:0]num5;
+    wire [8:0]num6;
+    wire [8:0]num7;
+    wire [8:0]num8;
+    wire [8:0]num9;
 
     getnum uut(
         .Clk_in(clk_in),
