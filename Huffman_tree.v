@@ -145,6 +145,16 @@ module Huffman_tree(
         else if(Num0[8] || Num1[8] || Num2[8] || Num3[8] || Num4[8] || Num5[8] || Num6[8] || Num7[8] || Num8[8] || Num9[8])//Num0-9 have  1 0000 0000
             begin
                 m1=5'b11111;
+                Tree0[0]<=Num0[8];
+                Tree0[1]<=Num1[8];
+                Tree0[2]<=Num2[8];
+                Tree0[3]<=Num3[8];
+                Tree0[4]<=Num4[8];
+                Tree0[5]<=Num5[8];
+                Tree0[6]<=Num6[8];
+                Tree0[7]<=Num7[8];
+                Tree0[8]<=Num8[8];
+                Tree0[9]<=Num9[8];
                 Tr_en=0;//end
             end
         else;
