@@ -60,14 +60,14 @@ module tb_ht();
         .Num7(num7),
         .Num8(num8),
         .Num9(num9),
-        .Tree0(tree0),
-        .Tree1(tree1),
-        .Tree2(tree2),
-        .Tree3(tree3),
-        .Tree4(tree4),
-        .Tree5(tree5),
-        .Tree6(tree6),
-        .Tree7(tree7),
+        .Node0(tree0),
+        .Node1(tree1),
+        .Node2(tree2),
+        .Node3(tree3),
+        .Node4(tree4),
+        .Node5(tree5),
+        .Node6(tree6),
+        .Node7(tree7),
         .m1(M1),
         .m2(M2)
     );
@@ -77,7 +77,7 @@ module tb_ht();
         nRst = 0;
         start = 0;
         //input data [53, 40, 26, 14, 38, 23, 7, 12, 4, 39]
-/*        num0 = 9'h35;
+       num0 = 9'h35;
         num1 = 9'h28;
         num2 = 9'h1a;
         num3 = 9'h0e;
@@ -87,8 +87,8 @@ module tb_ht();
         num7 = 9'h0c;
         num8 = 9'h04;
         num9 = 9'h27;
-*/
 
+/* 
         num0 = 9'h100;
         num1 = 9'h0;
         num2 = 9'h0;
@@ -99,7 +99,7 @@ module tb_ht();
         num7 = 9'h0;
         num8 = 9'h0;
         num9 = 9'h0;
-
+*/
         #500;
         nRst = 1;
 

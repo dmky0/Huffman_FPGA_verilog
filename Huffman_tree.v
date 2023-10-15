@@ -34,14 +34,14 @@ module Huffman_tree(
     Num7,
     Num8,
     Num9,
-    Tree0,
-    Tree1,
-    Tree2,
-    Tree3,
-    Tree4,
-    Tree5,
-    Tree6,
-    Tree7,
+    Node0,
+    Node1,
+    Node2,
+    Node3,
+    Node4,
+    Node5,
+    Node6,
+    Node7,
     m1,
     m2
     );
@@ -60,14 +60,14 @@ module Huffman_tree(
     input wire [8:0]Num8;
     input wire [8:0]Num9;
     //output signal
-    output reg [14:0]Tree0;//Tree0-7 is used to save huffman tree
-    output reg [14:0]Tree1;
-    output reg [14:0]Tree2;
-    output reg [14:0]Tree3;
-    output reg [14:0]Tree4;
-    output reg [14:0]Tree5;
-    output reg [14:0]Tree6;
-    output reg [14:0]Tree7;
+    output reg [14:0]Node0;//Node0-7 is used to save huffman tree
+    output reg [14:0]Node1;
+    output reg [14:0]Node2;
+    output reg [14:0]Node3;
+    output reg [14:0]Node4;
+    output reg [14:0]Node5;
+    output reg [14:0]Node6;
+    output reg [14:0]Node7;
     output reg [4:0]m1;//right branch of root node
     output reg [4:0]m2;//left branch of root node
     //inner signal
@@ -105,14 +105,14 @@ module Huffman_tree(
     always @(posedge Clk_in or negedge n_Rst) begin
         if(~n_Rst)//initial
             begin
-                Tree0<=15'h0;
-                Tree1<=15'h0;
-                Tree2<=15'h0;
-                Tree3<=15'h0;
-                Tree4<=15'h0;
-                Tree5<=15'h0;
-                Tree6<=15'h0;
-                Tree7<=15'h0;
+                Node0<=15'h0;
+                Node1<=15'h0;
+                Node2<=15'h0;
+                Node3<=15'h0;
+                Node4<=15'h0;
+                Node5<=15'h0;
+                Node6<=15'h0;
+                Node7<=15'h0;
                 m1<=5'h0;
                 m2<=5'h0;
                 min<=9'h100;
@@ -145,16 +145,16 @@ module Huffman_tree(
         else if(Num0[8] || Num1[8] || Num2[8] || Num3[8] || Num4[8] || Num5[8] || Num6[8] || Num7[8] || Num8[8] || Num9[8])//Num0-9 have  1 0000 0000
             begin
                 m1=5'b11111;
-                Tree0[0]<=Num0[8];
-                Tree0[1]<=Num1[8];
-                Tree0[2]<=Num2[8];
-                Tree0[3]<=Num3[8];
-                Tree0[4]<=Num4[8];
-                Tree0[5]<=Num5[8];
-                Tree0[6]<=Num6[8];
-                Tree0[7]<=Num7[8];
-                Tree0[8]<=Num8[8];
-                Tree0[9]<=Num9[8];
+                Node0[0]<=Num0[8];
+                Node0[1]<=Num1[8];
+                Node0[2]<=Num2[8];
+                Node0[3]<=Num3[8];
+                Node0[4]<=Num4[8];
+                Node0[5]<=Num5[8];
+                Node0[6]<=Num6[8];
+                Node0[7]<=Num7[8];
+                Node0[8]<=Num8[8];
+                Node0[9]<=Num9[8];//this case use Node0 to mark the number
                 Tr_en=0;//end
             end
         else;
@@ -447,58 +447,58 @@ module Huffman_tree(
                         5'h0a:
                             begin
                                 Num10=min1_2;
-                                Tree0[14:10]=count;//build table
-                                Tree0[9:5]=m2;
-                                Tree0[4:0]=m1;
+                                Node0[14:10]=count;//build table
+                                Node0[9:5]=m2;
+                                Node0[4:0]=m1;
                             end
                         5'h0b:
                             begin
                                 Num11=min1_2;
-                                Tree1[14:10]=count;//build table
-                                Tree1[9:5]=m2;
-                                Tree1[4:0]=m1;
+                                Node1[14:10]=count;//build table
+                                Node1[9:5]=m2;
+                                Node1[4:0]=m1;
                             end
                         5'h0c:
                             begin
                                 Num12=min1_2;
-                                Tree2[14:10]=count;//build table
-                                Tree2[9:5]=m2;
-                                Tree2[4:0]=m1;
+                                Node2[14:10]=count;//build table
+                                Node2[9:5]=m2;
+                                Node2[4:0]=m1;
                             end
                         5'h0d:
                             begin
                                 Num13=min1_2;
-                                Tree3[14:10]=count;//build table
-                                Tree3[9:5]=m2;
-                                Tree3[4:0]=m1;
+                                Node3[14:10]=count;//build table
+                                Node3[9:5]=m2;
+                                Node3[4:0]=m1;
                             end
                         5'h0e:
                             begin
                                 Num14=min1_2;
-                                Tree4[14:10]=count;//build table
-                                Tree4[9:5]=m2;
-                                Tree4[4:0]=m1;
+                                Node4[14:10]=count;//build table
+                                Node4[9:5]=m2;
+                                Node4[4:0]=m1;
                             end
                         5'h0f:
                             begin
                                 Num15=min1_2;
-                                Tree5[14:10]=count;//build table
-                                Tree5[9:5]=m2;
-                                Tree5[4:0]=m1;
+                                Node5[14:10]=count;//build table
+                                Node5[9:5]=m2;
+                                Node5[4:0]=m1;
                             end
                         5'h10:
                             begin
                                 Num16=min1_2;
-                                Tree6[14:10]=count;//build table
-                                Tree6[9:5]=m2;
-                                Tree6[4:0]=m1;
+                                Node6[14:10]=count;//build table
+                                Node6[9:5]=m2;
+                                Node6[4:0]=m1;
                             end
                         5'h11:
                             begin
                                 Num17=min1_2;
-                                Tree7[14:10]=count;//build table
-                                Tree7[9:5]=m2;
-                                Tree7[4:0]=m1;
+                                Node7[14:10]=count;//build table
+                                Node7[9:5]=m2;
+                                Node7[4:0]=m1;
                             end
                         default: ;
                     endcase
