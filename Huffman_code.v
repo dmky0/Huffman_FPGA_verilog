@@ -43,7 +43,8 @@ module Huffman_code(
     Code6,
     Code7,
     Code8,
-    Code9
+    Code9,
+    Fin
     );
     //input signal
     input wire Clk_in;
@@ -79,6 +80,7 @@ module Huffman_code(
     reg [1:0]State;
     reg [4:0]temp;
     reg flag;
+    output reg Fin;
 
     always @(negedge Start_code)begin
         Hc_en<=1;
@@ -87,6 +89,7 @@ module Huffman_code(
     always @(posedge Clk_in or negedge n_Rst) begin
         if(~n_Rst)//initial
             begin
+                Fin<=0;
                 Code0<=16'h0;
                 Code1<=16'h0;
                 Code2<=16'h0;
@@ -122,9 +125,59 @@ module Huffman_code(
             end
         else if(m1==5'b11111)//Num0-9 have  1 0000 0000
             begin
-                Code0=16'hffff;
-                Code1[12:0]=Tree0;
+                Code0<=13'b0001000000001;
+                Code1<=13'b0100000000111;
+                Code2<=13'b0100000000110;
+                Code3<=13'b0100000000101;
+                Code4<=13'b0100000000100;
+                Code5<=13'b0100000000011;
+                Code6<=13'b0100000000010;
+                Code7<=13'b0100000000001;
+                Code8<=13'b0101000000001;
+                Code9<=13'b0101000000000;
+                code=9'b000000001;
+                code_bit=4'b0001;
+                case (Tree0)
+                    12'b10: begin
+                        Code0=Code1;
+                        Code1={code_bit,code};
+                    end
+                    12'b100: begin
+                        Code0=Code2;
+                        Code2={code_bit,code};
+                    end
+                    12'b1000: begin
+                        Code0=Code3;
+                        Code3={code_bit,code};
+                    end
+                    12'b10000: begin
+                        Code0=Code4;
+                        Code4={code_bit,code};
+                    end
+                    12'b100000: begin
+                        Code0=Code5;
+                        Code5={code_bit,code};
+                    end
+                    12'b1000000: begin
+                        Code0=Code6;
+                        Code6={code_bit,code};
+                    end
+                    12'b10000000: begin
+                        Code0=Code7;
+                        Code7={code_bit,code};
+                    end
+                    12'b100000000: begin
+                        Code0=Code8;
+                        Code8={code_bit,code};
+                    end
+                    12'b1000000000: begin
+                        Code0=Code9;
+                        Code9={code_bit,code};
+                    end
+                    default: ;
+                endcase
                 Hc_en=0;//end
+                Fin=1;
             end
         else;
     end
@@ -170,7 +223,10 @@ module Huffman_code(
                     code_num=5'h12;
                 end
                 2'b01:begin//left child
-                    if(Node[8][9:0]==10'h3ff)begin Hc_en=0; end
+                    if(Node[8][9:0]==10'h3ff)begin
+                        Hc_en=0; 
+                        Fin=1;
+                        end
                     code_num = Node[temp][9:5];
                     if(Node[temp][9:0]==10'h3ff)begin//
                         temp=Node[temp][14:10];

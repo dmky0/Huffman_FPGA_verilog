@@ -34,7 +34,8 @@ module getnum(
     Num6,
     Num7,
     Num8,
-    Num9
+    Num9,
+    Fin
     );
     //input signal
     input Clk_in;
@@ -52,6 +53,7 @@ module getnum(
     output reg [8:0]Num7;
     output reg [8:0]Num8;
     output reg [8:0]Num9;
+    output reg Fin;
     //inner signal
     reg [7:0]Num_time;//use 256 cycles to input data at most
     reg Gn_en;//enable signal of getnum
@@ -63,6 +65,7 @@ module getnum(
     always @(posedge Clk_in or negedge nRst) begin
         if(~nRst)//initial the number
             begin
+                Fin<=0;
                 Num0<=9'b00;
                 Num1<=9'b00;
                 Num2<=9'b00;
@@ -95,8 +98,10 @@ module getnum(
     end
 
     always @(posedge Clk_in or negedge nRst) begin
-            if(&Num_time)//Num_time == 8'Hff
-                Gn_en<=0;//end counting
+            if(&Num_time)begin
+                Gn_en<=0;//end counting                
+                Fin=1;
+            end//Num_time == 8'Hff
         end
 
     always @(posedge Clk_in or negedge nRst) begin

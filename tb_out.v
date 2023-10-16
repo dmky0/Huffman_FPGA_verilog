@@ -38,6 +38,7 @@ module tb_out();
     wire Out;
     wire Outt;
     wire [1:0]state;
+    wire Fin;
 
     Out_put uut(
         .Clk_in(clk_in),
@@ -55,7 +56,8 @@ module tb_out();
         .Code9(Code9),
         .Out(Out),
         .Outt(Outt),
-        .state(state)
+        .state(state),
+        .Fin(Fin)
     );
 
     initial begin

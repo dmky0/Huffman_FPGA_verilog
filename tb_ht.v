@@ -45,6 +45,7 @@ module tb_ht();
     wire [14:0]tree7;
     wire [4:0]M1;
     wire [4:0]M2;
+    wire Fin;
 
     Huffman_tree uut(
         .Clk_in(clk_in),
@@ -69,7 +70,8 @@ module tb_ht();
         .Node6(tree6),
         .Node7(tree7),
         .m1(M1),
-        .m2(M2)
+        .m2(M2),
+        .Fin(Fin)
     );
 
     initial begin

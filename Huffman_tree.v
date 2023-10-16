@@ -43,7 +43,8 @@ module Huffman_tree(
     Node6,
     Node7,
     m1,
-    m2
+    m2,
+    Fin
     );
     //input signal
     input wire Clk_in;
@@ -70,6 +71,7 @@ module Huffman_tree(
     output reg [14:0]Node7;
     output reg [4:0]m1;//right branch of root node
     output reg [4:0]m2;//left branch of root node
+    output reg Fin;
     //inner signal
     reg [8:0]min;//used to find smallest number
     reg [4:0]mm;//used to record the smallest number
@@ -105,6 +107,7 @@ module Huffman_tree(
     always @(posedge Clk_in or negedge n_Rst) begin
         if(~n_Rst)//initial
             begin
+                Fin<=0;
                 Node0<=15'h0;
                 Node1<=15'h0;
                 Node2<=15'h0;
@@ -156,6 +159,7 @@ module Huffman_tree(
                 Node0[8]<=Num8[8];
                 Node0[9]<=Num9[8];//this case use Node0 to mark the number
                 Tr_en=0;//end
+                Fin=1;
             end
         else;
     end
@@ -505,10 +509,13 @@ module Huffman_tree(
                     count=count+1;
                     if (count == 5'h13) begin//one more loop for get new min1 and min2
                         Tr_en=0;//end
+                        Fin=1;
                     end
                     end
-                    else if(min1_2[8])//min1+min2 == 1 0000 0000
+                    else if(min1_2[8])begin//min1+min2 == 1 0000 0000
                         Tr_en=0;//end;
+                        Fin=1;
+                    end
                     State=2'b00;
                 end
                 2'b11: ;

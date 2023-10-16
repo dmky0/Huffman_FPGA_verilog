@@ -45,6 +45,7 @@ module tb_hc();
     wire [12:0]Code7;
     wire [12:0]Code8;
     wire [12:0]Code9;
+    wire Fin;
 
     Huffman_code uut(
         .Clk_in(clk_in),
@@ -69,7 +70,8 @@ module tb_hc();
         .Code6(Code6),
         .Code7(Code7),
         .Code8(Code8),
-        .Code9(Code9)
+        .Code9(Code9),
+        .Fin(Fin)
     );
 
     initial begin
@@ -87,6 +89,17 @@ module tb_hc();
         Tree7=15'h45ee;
         m1=16;
         m2=17;
+
+/*        Tree0=15'h0008;
+        Tree1=0;
+        Tree1=0;
+        Tree1=0;
+        Tree1=0;
+        Tree1=0;
+        Tree1=0;
+        Tree1=0;
+        m1=5'h1f;
+        m2=0;*/
 
         #500;
         nRst = 1;

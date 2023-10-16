@@ -36,7 +36,8 @@ module Out_put(
     Code9,
     Out,
     Outt,
-    state
+    state,
+    Fin
     );
 //input signal
     input wire Clk_in;
@@ -56,6 +57,7 @@ module Out_put(
     output reg Out;
     output reg Outt;
     output reg [1:0]state;
+    output reg Fin;
 //inner signal
     reg Out_en;//enable signal
     reg [3:0]count;//count num0-9
@@ -75,6 +77,7 @@ module Out_put(
                 Out<=0;
                 count<=0;
                 Out_en<=0;
+                Fin<=1;
                 temp<=0;
                 state=0;
                 Outt=0;
@@ -88,6 +91,7 @@ module Out_put(
     always @(posedge Clk_in or negedge n_Rst) begin
         if(~n_Rst)//initial
             begin
+                Fin<=0;
                 Out<=0;
                 count<=0;
                 Out_en<=0;
@@ -98,9 +102,6 @@ module Out_put(
                 cnt_bit=0;
                 Code=0;
             end
-        else if(Code0==12'h3ff)begin
-            Out_en=0;//
-        end
     end
 
     always @(posedge Clk_in or negedge n_Rst) begin
