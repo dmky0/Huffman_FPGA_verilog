@@ -1,6 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/xilinx/fpga_pro/Huffman_FPGA/output.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Out_put
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/xilinx/fpga_pro/Huffman_FPGA/tb_out.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Out_put
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'Out_put' [D:/xilinx/fpga_pro/Huffman_FPGA/output.v:23]
-INFO: [VRFC 10-311] analyzing module tb_out

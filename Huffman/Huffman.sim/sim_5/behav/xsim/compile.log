@@ -1,6 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/xilinx/fpga_pro/Huffman_FPGA/Huffman.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Huffman
-INFO: [VRFC 10-2263] Analyzing Verilog file "D:/xilinx/fpga_pro/Huffman_FPGA/TB.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Huffman
-WARNING: [VRFC 10-3609] overwriting previous definition of module 'Huffman' [D:/xilinx/fpga_pro/Huffman_FPGA/Huffman.v:22]
-INFO: [VRFC 10-311] analyzing module TB
