@@ -26,7 +26,7 @@ module Huffman(
     Data_in,
     Out,
     Outt
-    );
+    ); 
     //input signal
     input wire Clk_in;
     input wire n_Rst;
