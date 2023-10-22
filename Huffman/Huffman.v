@@ -103,8 +103,11 @@ module Huffman(
     wire [12:0]CCode9;
 
     reg Start_getnum;
+    reg Rst_tree;
     reg Start_tree;
+    reg Rst_code;
     reg Start_code;
+    reg Rst_out;
     reg Start_out;
     
     reg Fin_getnum;
@@ -119,7 +122,7 @@ module Huffman(
     wire OOut;
     wire OOutt;
 
-    reg [1:0]Count;
+    reg [2:0]Count;
     reg Enable;
     reg flag;
     
@@ -143,7 +146,7 @@ getnum Gn(
 
 Huffman_tree Ht(
     .Clk_in(Clk_in),
-    .n_Rst(n_Rst),
+    .n_Rst(Rst_tree),
     .Start_tree(Start_tree),
     .Num0(Num0),
     .Num1(Num1),
@@ -170,7 +173,7 @@ Huffman_tree Ht(
 
 Huffman_code Hc(
     .Clk_in(Clk_in),
-    .n_Rst(n_Rst),
+    .n_Rst(Rst_code),
     .Start_code(Start_code),
     .Tree0(Node0),
     .Tree1(Node1),
@@ -196,8 +199,8 @@ Huffman_code Hc(
 );
 
 Out_put Op(
-    .Clk_in(CLk_in),
-    .n_Rst(n_Rst),
+    .Clk_in(Clk_in),
+    .n_Rst(Rst_out),
     .Start_out(Start_out),
     .Code0(Code0),
     .Code1(Code1),
@@ -226,9 +229,11 @@ always @(posedge Clk_in or negedge n_Rst) begin
                 Fin_code=0;
                 Fin_out=0;
                 Start_getnum=0;
-                Start_tree=0;
+                Rst_tree=1;
                 Start_code=0;
+                Rst_code=1;
                 Start_out=0;
+                Rst_out=1;
                 Out=0;
                 Outt=0;
                 Count=0;
@@ -279,7 +284,7 @@ end
 always @(posedge Clk_in or negedge n_Rst) begin
     if(Enable)begin
         case (Count)
-            2'b00: begin
+            3'b000: begin
                 if(!flag)begin
                     Start_getnum=1;
                     flag=1;
@@ -292,7 +297,18 @@ always @(posedge Clk_in or negedge n_Rst) begin
                     flag=0;
                 end
             end
-            2'b01: begin
+            3'b001: begin
+                if(!flag)begin
+                    Rst_tree=0;
+                    flag=1;
+                end
+                else begin
+                    Rst_tree=1;
+                    Count=Count+1;
+                    flag=0;
+                end
+            end
+            3'b010: begin
                 if(!flag)begin
                     Start_tree=1;
                     flag=1;
@@ -305,7 +321,18 @@ always @(posedge Clk_in or negedge n_Rst) begin
                     flag=0;
                 end
             end
-            2'b10: begin
+            3'b011: begin
+                if(!flag)begin
+                    Rst_code=0;
+                    flag=1;
+                end
+                else begin
+                    Rst_code=1;
+                    Count=Count+1;
+                    flag=0;
+                end
+            end
+            3'b100: begin
                 if(!flag)begin
                     Start_code=1;
                     flag=1;
@@ -318,7 +345,18 @@ always @(posedge Clk_in or negedge n_Rst) begin
                     flag=0;
                 end
             end
-            2'b11: begin
+            3'b101: begin
+                if(!flag)begin
+                    Rst_out=0;
+                    flag=1;
+                end
+                else begin
+                    Rst_out=1;
+                    Count=Count+1;
+                    flag=0;
+                end
+            end
+            3'b110: begin
                 if(!flag)begin
                     Start_out=1;
                     flag=1;

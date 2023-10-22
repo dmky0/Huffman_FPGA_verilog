@@ -3,5 +3,5 @@
 May  7 2023
 15:24:31
 D:/xilinx/fpga_pro/Huffman_FPGA/Huffman/Huffman.sim/sim_1/behav/xsim/glbl.v,1683266558,verilog,,,,glbl,,,,,,,,
-D:/xilinx/fpga_pro/Huffman_FPGA/getnum.v,1696784485,verilog,,D:/xilinx/fpga_pro/Huffman_FPGA/tb_gn.v,,getnum,,,,,,,,
-D:/xilinx/fpga_pro/Huffman_FPGA/tb_gn.v,1696783883,verilog,,,D:/xilinx/fpga_pro/Huffman_FPGA/getnum.v,tb_gn,,,,,,,,
+D:/xilinx/fpga_pro/Huffman_FPGA/getnum.v,1697462787,verilog,,D:/xilinx/fpga_pro/Huffman_FPGA/tb_gn.v,,getnum,,,,,,,,
+D:/xilinx/fpga_pro/Huffman_FPGA/tb_gn.v,1697469582,verilog,,,D:/xilinx/fpga_pro/Huffman_FPGA/getnum.v,tb_gn,,,,,,,,

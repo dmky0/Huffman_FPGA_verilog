@@ -41,7 +41,7 @@ module TB();
 initial begin
         clk_in = 0;
         nRst = 0;
-        Data_in = 0;
+        Data_in = 4'hf;
         start = 0;
 
         #500;
@@ -51,7 +51,9 @@ initial begin
         #1;
         start = 0;
 
-        Data_in = 4'b0000; #530;
+        #19;
+
+        Data_in = 4'b1001; #390;
         Data_in = 4'b0001; #400;
         Data_in = 4'b0010; #260;
         Data_in = 4'b0011; #140;
@@ -60,7 +62,7 @@ initial begin
         Data_in = 4'b0110; #70;
         Data_in = 4'b0111; #120;
         Data_in = 4'b1000; #40;
-        Data_in = 4'b1001; #390;
+        Data_in = 4'b0000; #530;
 
     end
 
