@@ -2,10 +2,10 @@
 2020.2
 May  7 2023
 15:24:31
+D:/xilinx/fpga_pro/Huffman_FPGA/Huffman.v,1697956665,verilog,,D:/xilinx/fpga_pro/Huffman_FPGA/Huffman_code.v,,Huffman,,,,,,,,
 D:/xilinx/fpga_pro/Huffman_FPGA/Huffman/Huffman.sim/sim_5/behav/xsim/glbl.v,1683266558,verilog,,,,glbl,,,,,,,,
-D:/xilinx/fpga_pro/Huffman_FPGA/Huffman/Huffman.v,1697956134,verilog,,D:/xilinx/fpga_pro/Huffman_FPGA/Huffman_code.v,,Huffman,,,,,,,,
-D:/xilinx/fpga_pro/Huffman_FPGA/Huffman/TB.v,1697951304,verilog,,,D:/xilinx/fpga_pro/Huffman_FPGA/Huffman/Huffman.v,TB,,,,,,,,
 D:/xilinx/fpga_pro/Huffman_FPGA/Huffman_code.v,1697462640,verilog,,D:/xilinx/fpga_pro/Huffman_FPGA/Huffman_tree.v,,Huffman_code,,,,,,,,
 D:/xilinx/fpga_pro/Huffman_FPGA/Huffman_tree.v,1697953765,verilog,,D:/xilinx/fpga_pro/Huffman_FPGA/getnum.v,,Huffman_tree,,,,,,,,
+D:/xilinx/fpga_pro/Huffman_FPGA/TB.v,1697956693,verilog,,,D:/xilinx/fpga_pro/Huffman_FPGA/Huffman.v,TB,,,,,,,,
 D:/xilinx/fpga_pro/Huffman_FPGA/getnum.v,1697462787,verilog,,D:/xilinx/fpga_pro/Huffman_FPGA/output.v,,getnum,,,,,,,,
-D:/xilinx/fpga_pro/Huffman_FPGA/output.v,1697462311,verilog,,D:/xilinx/fpga_pro/Huffman_FPGA/Huffman/TB.v,,Out_put,,,,,,,,
+D:/xilinx/fpga_pro/Huffman_FPGA/output.v,1697462311,verilog,,D:/xilinx/fpga_pro/Huffman_FPGA/TB.v,,Out_put,,,,,,,,

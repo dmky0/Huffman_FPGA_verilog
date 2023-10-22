@@ -1,11 +1,11 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../Huffman.v" \
+"../../../../../Huffman.v" \
 "../../../../../Huffman_code.v" \
 "../../../../../Huffman_tree.v" \
 "../../../../../getnum.v" \
 "../../../../../output.v" \
-"../../../../TB.v" \
+"../../../../../TB.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"
