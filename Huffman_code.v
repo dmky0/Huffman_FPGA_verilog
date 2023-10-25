@@ -118,8 +118,8 @@ module Huffman_code(
                 Node[1]=Tree1;//0b
                 Node[0]=Tree0;//0a
 
-                State=0;
-                temp=m2-4'ha;
+                State=2'b11;
+                temp=m2;
                 flag=0;//flag to update table
 
             end
@@ -330,6 +330,28 @@ module Huffman_code(
                             default: ;
                         endcase
                         Node[temp][4:0]=5'h1f;
+                        State=2'b00;
+                    end
+                end
+                2'b11: begin//initial
+                    if(temp>4'h9)begin
+                        State=0;
+                    end
+                    else begin//temp=0-9 
+                        case (temp)
+                            4'h0:Code0=13'b0001000000001;
+                            4'h1:Code1=13'b0001000000001;
+                            4'h2:Code2=13'b0001000000001;
+                            4'h3:Code3=13'b0001000000001;
+                            4'h4:Code4=13'b0001000000001;
+                            4'h5:Code5=13'b0001000000001;
+                            4'h6:Code6=13'b0001000000001;
+                            4'h7:Code7=13'b0001000000001;
+                            4'h8:Code8=13'b0001000000001;
+                            4'h9:Code9=13'b0001000000001;
+                            default: ;
+                        endcase
+                        Node[8][9:5]=5'h1f;
                         State=2'b00;
                     end
                 end
